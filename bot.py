@@ -1,8 +1,22 @@
+from flask import Flask
+import threading
+import os
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, filters
 
-# معرف قناتك الجديد الذي يجب على الأعضاء الاشتراك فيه
-CHANNEL_USERNAME = "@xxxxxxxxxxxxxxxxxxxxxxxxx777777" 
+# معرف قناتك الجديد للاشتراك الإجباري
+CHANNEL_USERNAME = "@bacwithmostapha" 
+
+# إنشاء خادم ويب وهمي لترضى منصة Render بالخطة المجانية
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bac Bot is online and running 24/7!"
+
+def run_web():
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
 
 async def welcome_and_check(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not update.message:
@@ -67,13 +81,18 @@ async def welcome_and_check(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     TOKEN = "8505095845:AAH3QdFVOK7jTeb7sds8Fx7Q7rgeb3mQLwo"
     
-    app = ApplicationBuilder().token(TOKEN).build()
+    app_bot = ApplicationBuilder().token(TOKEN).build()
     
     # معالج يستمع لكل الرسائل وانضمام الأعضاء الجدد
-    app.add_handler(MessageHandler(filters.ALL & ~filters.COMMAND, welcome_and_check))
+    app_bot.add_handler(MessageHandler(filters.ALL & ~filters.COMMAND, welcome_and_check))
     
     print("البوت يعمل الآن مع معرف القناة الجديد ونظام الحماية...")
-    app.run_polling()
+    app_bot.run_polling()
 
 if __name__ == '__main__':
+    # تشغيل خادم الويب في الخلفية لترضى منصة Render
+    t = threading.Thread(target=run_web)
+    t.start()
+    
+    # تشغيل البوت الأساسي
     main()
