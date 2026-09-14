@@ -113,7 +113,7 @@ async def send_scheduled_motivation(bot):
         
         # الزر الشفاف الذي طلبته تماماً
         keyboard = [
-            [InlineKeyboardButton("⏳ موعدنا شهر جوان بحول الله 🔥", url="@bacwithmostapha")] # استبدل الرابط برابط قناتك أو يوتيوب
+            [InlineKeyboardButton("⏳ موعدنا شهر جوان بحول الله 🔥", url="https://t.me/bacwithmostapha")] # استبدل الرابط برابط قناتك أو يوتيوب
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         
