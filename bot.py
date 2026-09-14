@@ -10,7 +10,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 CHANNEL_USERNAME = "@xxxxxxxxxxxxxxxxxxxxxxxxx777777"  
 
 # معرف مجموعتك التي سيتم إرسال الرسائل التحفيزية إليها تلقائياً
-GROUP_CHAT_ID = "@xxxxxxxxxxxx"  # ضع هنا معرف أو آيدي مجموعة أسطورة الباك الخاصة بك
+GROUP_CHAT_ID = "@rrrrrrrrrrrrrrrrrrrrr1232"  # ضع هنا معرف أو آيدي مجموعة أسطورة الباك الخاصة بك
 
 # --- قائمة الرسائل التحفيزية المباشرة (جاهزة للاستخدام في البوت) ---
 MOTIVATIONAL_MESSAGES = [
