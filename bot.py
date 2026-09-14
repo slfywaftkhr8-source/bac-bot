@@ -5,7 +5,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import ApplicationBuilder, ContextTypes, MessageHandler, filters
 
 # معرف قناتك الجديد للاشتراك الإجباري
-CHANNEL_USERNAME = "@bacwithmostapha" 
+CHANNEL_USERNAME = "@xxxxxxxxxxxxxxxxxxxxxxxxx777777" 
 
 # إنشاء خادم ويب وهمي لترضى منصة Render بالخطة المجانية
 app = Flask(__name__)
